@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>게시판</title>
+    </head>
+    <body>
+        <h1>게시판</h1>
+        <a href="{{ url_for('create') }}">새 글 작성</a>
+        <ul>
+            {% for post in posts%}
+            <li>
+                <strong>{{ post[1] }}</strong> - {{ post[2]}}
+                <a href="{{ url_for('delete', post_id=post[0]) }}">삭제</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+    </html>
